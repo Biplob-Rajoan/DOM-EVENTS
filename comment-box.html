@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Box</title>
+    <style>
+        .comment {
+            border: 2px solid blue;
+            margin: 10px;
+            padding: 10px;
+            background-color: lightcyan;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Awesome Comment Box </h1>
+    <section>
+        <h3>All Comments Here</h3>
+        <div id="comment-container">
+            <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ratione voluptas illo itaque natus accusamus reprehenderit dolores, quisquam sint odit repellendus quaerat! Blanditiis voluptas mollitia magni, nihil ex laborum maxime.</p>
+            <p class="comment">Officia nulla autem assumenda nesciunt animi delectus unde corporis? Fugit soluta dicta veritatis blanditiis molestiae ut incidunt, pariatur numquam saepe, porro ipsum magni repudiandae perspiciatis aspernatur eum, excepturi adipisci vero!</p>
+            <p class="comment">Accusantium ex aperiam quo. Iste numquam, iusto commodi, optio cupiditate similique ratione deleniti veritatis ipsam, impedit ducimus accusantium tempora dicta vero recusandae placeat magnam dolorum laborum voluptate. Magni, maxime nam?</p>
+        </div>
+        <!-- <form action=""> -->
+            <textarea name="" id="comment-text" cols="60" rows="10"></textarea>
+            <br>
+            <button id="btn-post-comment">Post</button>
+        <!-- </form> -->
+    </section>
+    <script>
+        // set event listener for post comment button
+        document.getElementById('btn-post-comment').addEventListener('click', function (){
+            console.log('Post comment button clicked');
+
+            // get the textarea value
+            const commentTextBox = document.getElementById('comment-text');
+            
+            const newComment = commentTextBox.value;
+
+            //step 3: get the parent container where the new comment will be added
+
+            const commentContainer = document.getElementById('comment-container');
+            console.log(commentContainer);
+
+            //step:4: create a new paragraph element to hold the new comment
+
+            const commentElement = document.createElement('p');
+            commentElement.classList.add('comment');
+            commentElement.innerText = newComment;
+
+            //step 5: append the new comment in the parent container
+            commentContainer.appendChild(commentElement);
+
+            //step 6: clear the textarea after posting the comment
+            commentTextBox.value = '';
+        })
+    </script>
+</body>
+</html>
